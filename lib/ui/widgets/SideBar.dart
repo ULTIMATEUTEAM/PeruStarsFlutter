@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart'; 
 
-class NavBar extends StatelessWidget {
-  const NavBar({Key? key}) : super(key: key);
+class SideBar extends StatelessWidget {
+  const SideBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(                        //Esto dibuja el SideBar
+    return Drawer(//Esto dibuja el SideBar
       child: ListView(//Se llama a la lista de elementos que ira dentro
         padding: EdgeInsets.zero,
         children: [
@@ -15,7 +15,7 @@ class NavBar extends StatelessWidget {
               currentAccountPicture: CircleAvatar(
                 child:ClipOval(
                   child:Image.network(
-                    "https://commons.wikimedia.org/wiki/Main_Page#/media/File:Georgia_Jvari_monastery_IMG_9345_2070.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d1/CARLOS-WARD-PERFIL.png",
                     width: 90,
                     height: 90,
                     fit: BoxFit.cover,
@@ -23,7 +23,7 @@ class NavBar extends StatelessWidget {
                 )
               ),
             decoration: BoxDecoration( //Fondo para el marco
-              color: Colors.orange,
+              color: Colors.red,
             ),
 
           ),

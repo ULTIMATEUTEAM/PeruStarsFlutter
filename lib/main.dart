@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'NavBar.dart';
+import '/ui/widgets/NavBar.dart';
+import 'ui/widgets/SideBar.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const MyHomePage(),
@@ -31,10 +32,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavBar(),
-      appBar: AppBar(
-        title: Text("SideBar"),
-      ),
+      drawer: SideBar(),
+      appBar: NavBar(),
       body: Center(),
     );
   }
