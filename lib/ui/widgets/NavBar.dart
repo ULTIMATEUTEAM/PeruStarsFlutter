@@ -6,6 +6,8 @@ class NavBar extends StatelessWidget with PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
+      backgroundColor: Colors.white,
       title: const Text(
         "PeruStars",
         style: TextStyle(

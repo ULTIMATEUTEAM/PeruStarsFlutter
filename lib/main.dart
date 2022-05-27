@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peru_stars_mobile/ui/pages/artwork_page.dart';
 import '/ui/widgets/NavBar.dart';
 import 'ui/widgets/SideBar.dart';
 
@@ -34,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       drawer: SideBar(),
       appBar: NavBar(),
-      body: Center(),
+      body: ArtworkPage(),
     );
   }
 }
