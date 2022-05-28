@@ -8,11 +8,9 @@ class NavBar extends StatelessWidget with PreferredSizeWidget{
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.white,
-      title: const Text(
+      title: Text(
         "PeruStars",
-        style: TextStyle(
-          color: Colors.black87,
-        ),
+        style: Theme.of(context).textTheme.headline1,
       ),
       automaticallyImplyLeading: false,
       actions: [
