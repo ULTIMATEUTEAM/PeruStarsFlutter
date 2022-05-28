@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peru_stars_mobile/ui/pages/artwork_page.dart';
 import '/ui/widgets/NavBar.dart';
 import 'ui/widgets/SideBar.dart';
+import 'ui/widgets/BottomBar.dart';
 
 void main() {
   runApp(MyApp());
@@ -71,8 +72,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: SideBar(),
+      bottomNavigationBar: BottomNavBar(),
       appBar: NavBar(),
       body: ArtworkPage(),
+
     );
   }
 }
