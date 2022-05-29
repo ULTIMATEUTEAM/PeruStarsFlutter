@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peru_stars_mobile/ui/widgets/artwork_card.dart';
 import 'package:peru_stars_mobile/ui/widgets/carousel.dart';
 
 
@@ -8,8 +9,7 @@ class ArtworkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
         children: [
           Container(child: Carousel()),
           Padding(
@@ -27,10 +27,37 @@ class ArtworkPage extends StatelessWidget {
                     textAlign: TextAlign.justify,
                   ),
                 ),
+                Row(
+                  children: [
+                    Icon(Icons.attach_money, size: 30, color: Color(0XFF030047),),
+                    Text("250", style: Theme.of(context).textTheme.headline3,),
+                    Spacer(flex: 1,),
+                    //Icon(Icons.favorite_border, size: 30, color: Colors.red,),
+                    IconButton(
+                      onPressed: (){},
+                      icon: Icon(Icons.favorite_border, size: 30, color: Colors.red,),
+                    )
+                  ],
+                ),
               ],
             ),
 
-         )
+         ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Más del artista", style: Theme.of(context).textTheme.headline4,),
+                ArtworkCard(),
+                Text("La noche estrellada", style: Theme.of(context).textTheme.headline3,),
+                Text("La noche estrellada", style: Theme.of(context).textTheme.headline3,),
+                Text("La noche estrellada", style: Theme.of(context).textTheme.headline3,),
+                Text("La noche estrellada", style: Theme.of(context).textTheme.headline3,),
+
+              ],
+            ),
+          ),
          // Expanded, SizedBox, Container
         ],
       ),

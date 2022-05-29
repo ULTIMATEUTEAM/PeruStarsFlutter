@@ -64,7 +64,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
 
         ),
-
         body: Container(
           child: Center(
             child: _showPage ,
