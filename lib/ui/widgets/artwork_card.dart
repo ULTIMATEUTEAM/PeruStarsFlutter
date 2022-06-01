@@ -8,27 +8,43 @@ class ArtworkCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 15, horizontal: 0),
       width: 300,
-      height: 150,
+      height: 200,
       child: InkWell(
         onTap: (){},
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(22),
             border: Border.all(
-              color: Colors.black45,
+              color: Colors.black26,
             ),
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(22),
                 child: Image.network("https://hotpot.ai/images/site/ai/art_maker/teaser.jpg",
                   width: 300,
-                  height: 100,
+                  height: 130,
                   fit: BoxFit.cover,
                 ),
               ),
-              Text("La noche estrellada", style: Theme.of(context).textTheme.bodyText1,),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                child: Text("La noche estrellada", style: Theme.of(context).textTheme.headline3,),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                child: Row(
+                  children: [
+                    Text("Van Goh", style: Theme.of(context).textTheme.headline5,),
+                    Spacer(flex: 1),
+                    Icon(Icons.attach_money, size: 20, color: Colors.red[300],),
+                    Text("100", style: Theme.of(context).textTheme.headline4,),
+                  ],
+                ),
+              )
+
             ],
           ),
         ),

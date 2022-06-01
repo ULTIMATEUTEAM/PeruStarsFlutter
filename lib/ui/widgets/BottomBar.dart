@@ -48,7 +48,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             Icon(Icons.home, size: 30),
             Icon(Icons.search, size: 30),
             Icon(Icons.favorite_outline_outlined, size: 30),
-            Icon(Icons.calendar_today_outlined, size: 30),
+            Icon(Icons.calendar_today_outlined, size: 26),
 
           ],
           color: Colors.white,

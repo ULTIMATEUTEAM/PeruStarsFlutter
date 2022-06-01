@@ -50,10 +50,8 @@ class ArtworkPage extends StatelessWidget {
               children: [
                 Text("Más del artista", style: Theme.of(context).textTheme.headline4,),
                 ArtworkCard(),
-                Text("La noche estrellada", style: Theme.of(context).textTheme.headline3,),
-                Text("La noche estrellada", style: Theme.of(context).textTheme.headline3,),
-                Text("La noche estrellada", style: Theme.of(context).textTheme.headline3,),
-                Text("La noche estrellada", style: Theme.of(context).textTheme.headline3,),
+                ArtworkCard(),
+                ArtworkCard(),
 
               ],
             ),
