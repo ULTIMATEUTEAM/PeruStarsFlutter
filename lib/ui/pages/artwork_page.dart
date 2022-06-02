@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peru_stars_mobile/ui/widgets/artwork_card.dart';
+import 'package:peru_stars_mobile/ui/widgets/artist_card.dart';
 import 'package:peru_stars_mobile/ui/widgets/carousel.dart';
 
 
@@ -52,6 +53,7 @@ class ArtworkPage extends StatelessWidget {
                 ArtworkCard(),
                 ArtworkCard(),
                 ArtworkCard(),
+                ArtistCard(),
 
               ],
             ),

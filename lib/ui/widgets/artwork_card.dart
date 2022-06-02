@@ -13,7 +13,7 @@ class ArtworkCard extends StatelessWidget {
         onTap: (){},
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(28),
             border: Border.all(
               color: Colors.black26,
             ),
@@ -22,7 +22,7 @@ class ArtworkCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(22),
+                borderRadius: BorderRadius.circular(28),
                 child: Image.network("https://hotpot.ai/images/site/ai/art_maker/teaser.jpg",
                   width: 300,
                   height: 130,

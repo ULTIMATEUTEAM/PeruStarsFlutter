@@ -17,6 +17,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final ArtworkPage home = ArtworkPage();
 
+
   Widget _showPage = new ArtworkPage();
 
   Widget _pageChooser(int page){
