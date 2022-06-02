@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:peru_stars_mobile/main.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -22,8 +23,8 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 60),
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [Colors.red, Colors.red])),
+            // decoration: const BoxDecoration(
+            //     gradient: LinearGradient(colors: [Colors.red, Colors.red])),
             child: SvgPicture.asset(
               'assets/login_background.svg',
               fit: BoxFit.cover,
@@ -38,9 +39,8 @@ class _LoginPageState extends State<LoginPage> {
             child: Center(
               child: SingleChildScrollView(
                 child: Card(
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                  color: Colors.transparent,
+                  elevation: 0,
                   margin: const EdgeInsets.only(
                       left: 20, right: 20, top: 260, bottom: 20),
                   child: Padding(
@@ -139,9 +139,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _login(BuildContext context) {
-    if (!_loading) {
+    // in the future this will be improved
+    if (!_loading || _loading) {
       setState(() {
         _loading = true;
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => MyHomePage()));
       });
     }
   }
