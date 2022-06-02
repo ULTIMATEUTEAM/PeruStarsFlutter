@@ -23,7 +23,7 @@ class ArtworkCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(28),
-                child: Image.network("https://hotpot.ai/images/site/ai/art_maker/teaser.jpg",
+                child: Image.network("https://picsum.photos/350",
                   width: 300,
                   height: 130,
                   fit: BoxFit.cover,
