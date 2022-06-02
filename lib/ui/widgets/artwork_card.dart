@@ -44,7 +44,6 @@ class ArtworkCard extends StatelessWidget {
                   ],
                 ),
               )
-
             ],
           ),
         ),

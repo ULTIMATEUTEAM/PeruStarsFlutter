@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:peru_stars_mobile/ui/pages/artwork_page.dart';
+import 'package:peru_stars_mobile/ui/pages/home_amateur.dart';
 import 'package:peru_stars_mobile/ui/pages/search_page.dart';
 import 'package:peru_stars_mobile/ui/widgets/NavBar.dart';
 import 'package:peru_stars_mobile/ui/widgets/SideBar.dart';
@@ -21,9 +22,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget _pageChooser(int page){
     switch(page){
       case 0 :
-        return new ArtworkPage();
+        return new HomeAmateur();
       case 1 :
         return new SearchPage();
+      case 2 :
+        return new ArtworkPage();
         break;
       default:
         return new Container(
