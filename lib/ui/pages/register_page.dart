@@ -1,43 +1,51 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:google_fonts/google_fonts.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:peru_stars_mobile/main.dart';
-import 'package:peru_stars_mobile/ui/pages/register_page.dart';
+import 'package:peru_stars_mobile/ui/pages/login_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+enum UserType { artist, amateur }
+
+class _RegisterPageState extends State<RegisterPage> {
   bool _loading = false;
+  UserType? _userType = UserType.amateur;
+
+  final ScrollController _scrollController = ScrollController(
+    initialScrollOffset: 50.0,
+  );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            width: double.infinity,
-            // decoration: const BoxDecoration(
-            //     gradient: LinearGradient(colors: [Colors.red, Colors.red])),
-            child: SvgPicture.asset(
-              'assets/login_background.svg',
-              fit: BoxFit.cover,
+          Transform(
+            alignment: Alignment.center,
+            transform: Matrix4.rotationY(pi),
+            child: SizedBox(
+              width: double.infinity,
+              child: SvgPicture.asset(
+                'assets/login_background.svg',
+                fit: BoxFit.cover,
+              ),
             ),
-            // Image.asset(
-            //   "assets/login_background.svg",
-            //   height: 200,
-            // ),
           ),
           Transform.translate(
             offset: const Offset(0, -60),
             child: Center(
               child: SingleChildScrollView(
+                controller: _scrollController,
                 child: Card(
                   color: Colors.transparent,
                   elevation: 0,
@@ -50,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Iniciar Sesión',
+                          'Regístrate',
                           style: GoogleFonts.montserrat(
                               fontSize: 25,
                               fontWeight: FontWeight.w600,
@@ -73,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         const SizedBox(
-                          height: 40,
+                          height: 20,
                         ),
                         TextFormField(
                           decoration: InputDecoration(
@@ -90,29 +98,59 @@ class _LoginPageState extends State<LoginPage> {
                           obscureText: true,
                         ),
                         const SizedBox(
-                          height: 6,
+                          height: 20,
                         ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            onPressed: null,
-                            child: Text(
-                              '¿Olvidaste tu contraseña?',
-                              style: GoogleFonts.montserrat(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black,
-                              ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: "Repetir contraseña",
+                            prefixIcon: const Icon(Icons.lock),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
                             ),
                           ),
+                          style: GoogleFonts.montserrat(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          obscureText: true,
                         ),
+                        const SizedBox(
+                          height: 6,
+                        ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     RadioListTile(
+                        //       title: const Text('Artista'),
+                        //       value: UserType.artist,
+                        //       groupValue: _userType,
+                        //       onChanged: (UserType? value) {
+                        //         setState(() {
+                        //           _userType = value;
+                        //         });
+                        //       },
+                        //       activeColor: Colors.red,
+                        //     ),
+                        //     // RadioListTile(
+                        //     //   title: const Text('Artista'),
+                        //     //   value: UserType.artist,
+                        //     //   groupValue: _userType,
+                        //     //   onChanged: (UserType? value) {
+                        //     //     setState(() {
+                        //     //       _userType = value;
+                        //     //     });
+                        //     //   },
+                        //     //   activeColor: Colors.red,
+                        //     // )
+                        //   ],
+                        // ),
                         const SizedBox(
                           height: 20,
                         ),
                         ElevatedButton(
                           onPressed: () => _login(context),
                           child: Text(
-                            'Ingresar',
+                            'Registrar',
                             style: GoogleFonts.montserrat(
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
@@ -133,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '¿No tienes una cuenta?',
+                              '¿Ya tienes una cuenta?',
                               style: GoogleFonts.montserrat(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w400,
@@ -141,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             TextButton(
                               child: Text(
-                                'Registrarse',
+                                'Inicia Sesión',
                                 style: GoogleFonts.montserrat(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w600,
@@ -180,6 +218,6 @@ class _LoginPageState extends State<LoginPage> {
 
   _showRegister(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => RegisterPage()));
+        .push(MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }

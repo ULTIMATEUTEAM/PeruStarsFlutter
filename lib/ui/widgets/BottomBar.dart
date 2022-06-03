@@ -17,61 +17,55 @@ class _BottomNavBarState extends State<BottomNavBar> {
   //Se llaman las paginas a mostrar
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
-  Widget _showPage = new ArtworkPage();
+  Widget _showPage = new HomeAmateur();
 
-  Widget _pageChooser(int page){
-    switch(page){
-      case 0 :
+  Widget _pageChooser(int page) {
+    switch (page) {
+      case 0:
         return new HomeAmateur();
-      case 1 :
+      case 1:
         return new SearchPage();
-      case 2 :
+      case 2:
         return new ArtworkPage();
         break;
       default:
         return new Container(
-          child:new Center(
-            child:new Text("No page found by page chosser")
-          )
-        );
+            child:
+                new Center(child: new Text("No page found by page chosser")));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-        appBar: NavBar(),
-        drawer: SideBar(),
-        bottomNavigationBar: CurvedNavigationBar(
-          key: _bottomNavigationKey,
-          index: pageIndex,
-          height: 60.0,
-
-          items: <Widget>[
-            Icon(Icons.home, size: 30),
-            Icon(Icons.search, size: 30),
-            Icon(Icons.favorite_outline_outlined, size: 30),
-            Icon(Icons.calendar_today_outlined, size: 26),
-
-          ],
-          color: Colors.white,
-          buttonBackgroundColor: Colors.white,
-          backgroundColor: Colors.red,
-          animationCurve: Curves.easeInOut,
-          animationDuration: Duration(milliseconds: 600),
-          onTap: (int tappedIndex) {
-            setState(() {
-              _showPage = _pageChooser(tappedIndex);
-            });
-          },
-
-
+      appBar: NavBar(),
+      drawer: SideBar(),
+      bottomNavigationBar: CurvedNavigationBar(
+        key: _bottomNavigationKey,
+        index: pageIndex,
+        height: 60.0,
+        items: <Widget>[
+          Icon(Icons.home, size: 30),
+          Icon(Icons.search, size: 30),
+          Icon(Icons.favorite_outline_outlined, size: 30),
+          Icon(Icons.calendar_today_outlined, size: 26),
+        ],
+        color: Colors.white,
+        buttonBackgroundColor: Colors.white,
+        backgroundColor: Colors.red,
+        animationCurve: Curves.easeInOut,
+        animationDuration: Duration(milliseconds: 600),
+        onTap: (int tappedIndex) {
+          setState(() {
+            _showPage = _pageChooser(tappedIndex);
+          });
+        },
+      ),
+      body: Container(
+        child: Center(
+          child: _showPage,
         ),
-        body: Container(
-          child: Center(
-            child: _showPage ,
-          ),
-        ),);
+      ),
+    );
   }
 }
