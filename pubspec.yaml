@@ -44,6 +44,8 @@ dev_dependencies:
 flutter_native_splash:
   color: "#ffffff"
   image: assets/background-splash.png
+  android_gravity: fill
+  ios_content_mode: scaleAspectFill
 
 # The following section is specific to Flutter.
 flutter:

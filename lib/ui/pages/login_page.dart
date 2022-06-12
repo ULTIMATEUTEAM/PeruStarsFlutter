@@ -31,26 +31,6 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-
-    storage.read('username').then((username) {
-      if (username != null && username.isNotEmpty) {
-        storage.read('userId').then((userId) {
-          log("user storaged: username -> $username, userId -> $userId");
-          if (userId != null && userId.isNotEmpty) {
-            _nextPageAfterLogin(context, int.parse(userId));
-          } else {
-            log('no estas logueado');
-          }
-        });
-      } else {
-        log('no estas logueado');
-      }
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -264,7 +244,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ],
           ),
-          duration: const Duration(seconds: 10),
+          duration: const Duration(seconds: 100),
         ),
       );
 
