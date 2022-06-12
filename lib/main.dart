@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:peru_stars_mobile/ui/pages/login_page.dart';
-import 'package:peru_stars_mobile/ui/pages/artwork_page.dart';
-import '/ui/widgets/NavBar.dart';
-import 'ui/widgets/SideBar.dart';
 import 'ui/widgets/BottomBar.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -59,24 +59,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BottomNavBar();
-    /*Scaffold(
-      //drawer: SideBar(),
-
-      //bottomNavigationBar: BottomNavBar(),
-      //body: ArtworkPage(),
-
-
-    );*/
+    return Container();
   }
 }

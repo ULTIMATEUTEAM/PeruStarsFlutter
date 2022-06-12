@@ -17,11 +17,15 @@ dependencies:
 
 
 
-  cupertino_icons: ^1.0.2
-  google_fonts: ^1.1.2
-  flutter_svg: ^0.19.3
-  carousel_slider: ^4.0.0
-  curved_navigation_bar: ^1.0.3 #latest version
+  cupertino_icons:
+  google_fonts:
+  flutter_svg:
+  carousel_slider:
+  curved_navigation_bar:
+  http:
+  dio:
+  flutter_secure_storage:
+  flutter_native_splash:
 
 dev_dependencies:
   flutter_test:
@@ -36,6 +40,10 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/background-splash.png
 
 # The following section is specific to Flutter.
 flutter:

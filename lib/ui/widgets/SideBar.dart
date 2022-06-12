@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peru_stars_mobile/ui/pages/login_page.dart';
+import 'package:peru_stars_mobile/services/mini-storage.dart' as storage;
 
 import '../pages/profile_page.dart';
 
@@ -48,10 +49,15 @@ class SideBar extends StatelessWidget {
           ListTile(
               leading: Icon(Icons.power_off),
               title: Text("Cerrar Sesión"),
-              onTap: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => LoginPage()))),
+              onTap: () => _closeSesion(context)),
         ],
       ),
     );
+  }
+
+  Future<void> _closeSesion(BuildContext context) async {
+    await storage.deleteAllAsync();
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }

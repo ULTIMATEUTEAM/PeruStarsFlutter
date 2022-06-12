@@ -7,6 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:peru_stars_mobile/main.dart';
 import 'package:peru_stars_mobile/ui/pages/login_page.dart';
+import 'package:peru_stars_mobile/ui/widgets/login_background.dart';
+
+import 'home_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -33,13 +36,26 @@ class _RegisterPageState extends State<RegisterPage> {
           Transform(
             alignment: Alignment.center,
             transform: Matrix4.rotationY(pi),
-            child: SizedBox(
-              width: double.infinity,
-              child: SvgPicture.asset(
-                'assets/login_background.svg',
-                fit: BoxFit.cover,
+            child: Stack(children: [
+              CustomPaint(
+                painter: LoginBackgroundSvg(),
+                size: Size(
+                    MediaQuery.of(context).size.width,
+                    (MediaQuery.of(context).size.width * 0.6876712328767123)
+                        .toDouble()),
               ),
-            ),
+              Transform.translate(
+                offset: const Offset(25, 50),
+                child: Transform(
+                  alignment: Alignment.center,
+                  transform: Matrix4.rotationY(pi),
+                  child: SvgPicture.asset(
+                    'assets/logo_perustars.svg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              )
+            ]),
           ),
           Transform.translate(
             offset: const Offset(0, -60),

@@ -8,12 +8,12 @@ class SearchPage extends StatefulWidget {
   State<SearchPage> createState() => _SearchPageState();
 }
 
-class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin{
+class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 0,horizontal: 30),
+      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 30),
       child: Column(
         children: [
           ArtistCard(),
@@ -23,14 +23,20 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin{
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey,
               tabs: [
-                Tab(text: "Artistas",),
-                Tab(text: "Obras",),
-                Tab(text: "Eventos",),
+                Tab(
+                  text: "Artistas",
+                ),
+                Tab(
+                  text: "Obras",
+                ),
+                Tab(
+                  text: "Eventos",
+                ),
               ],
             ),
           ),
           SizedBox(
-            height: 450,
+            height: 390,
             child: TabBarView(
               controller: _tabController,
               children: [
