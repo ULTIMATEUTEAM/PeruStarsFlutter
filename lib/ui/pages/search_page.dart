@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:peru_stars_mobile/models/artist.dart';
+import 'package:peru_stars_mobile/ui/pages/search_view_delegate.dart';
 import 'package:peru_stars_mobile/ui/widgets/artwork_card.dart';
 import 'package:peru_stars_mobile/ui/widgets/artist_card.dart';
 
@@ -12,11 +14,35 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
+    final List<Artist> artists = [
+      new Artist('Shakira'),
+      new Artist('Picasso'),
+      new Artist('Eva Ayllon'),
+      new Artist('Van Goh'),
+      new Artist('Gian Marco'),
+      new Artist('Hugo Javier'),
+      new Artist('Sebastiao Salgado'),
+    ];
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 30),
+      margin: EdgeInsets.fromLTRB(30, 20, 30, 0),
       child: Column(
         children: [
-          ArtistCard(),
+          AppBar(
+            automaticallyImplyLeading: false,
+            backgroundColor: Colors.white,
+            title: ListTile(
+              title: Text('Search', style: Theme.of(context).textTheme.bodyText2,),
+              onTap: (){
+                showSearch(
+                  context: context,
+                  delegate: SearchViewDelegate(artists),
+                );
+              },
+            ),
+            actions: [
+              Icon(Icons.search, color: Color(0XFFB7B7D2)),
+            ],
+          ),
           Container(
             child: TabBar(
               controller: _tabController,
@@ -36,7 +62,7 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 390,
+            height: 410,
             child: TabBarView(
               controller: _tabController,
               children: [
