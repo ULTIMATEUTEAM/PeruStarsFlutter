@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:peru_stars_mobile/ui/pages/artwork_page.dart';
+import 'package:peru_stars_mobile/ui/pages/favorites_page.dart';
 import 'package:peru_stars_mobile/ui/pages/home_amateur.dart';
 import 'package:peru_stars_mobile/ui/pages/search_page.dart';
 import 'package:peru_stars_mobile/ui/widgets/NavBar.dart';
@@ -26,7 +27,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       case 1:
         return new SearchPage();
       case 2:
-        return new ArtworkPage();
+        return new FavoritesPage();
         break;
       default:
         return new Container(

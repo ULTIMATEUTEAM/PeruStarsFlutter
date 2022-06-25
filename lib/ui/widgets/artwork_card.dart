@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peru_stars_mobile/ui/pages/artwork_page.dart';
 
 class ArtworkCard extends StatelessWidget {
   const ArtworkCard({Key? key}) : super(key: key);
@@ -10,7 +11,9 @@ class ArtworkCard extends StatelessWidget {
       width: 300,
       height: 200,
       child: InkWell(
-        onTap: (){},
+        onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> const Scaffold(body: ArtworkPage())));
+        },
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(28),

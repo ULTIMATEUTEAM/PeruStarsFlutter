@@ -40,7 +40,17 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
               },
             ),
             actions: [
-              Icon(Icons.search, color: Color(0XFFB7B7D2)),
+              Container(
+                margin: const EdgeInsets.only(right: 10),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.search,
+                    color: Color(0XFFB7B7D2),
+                    semanticLabel: 'Text to announce in accessibility modes',
+                  ),
+                ),
+              ),
             ],
           ),
           Container(
