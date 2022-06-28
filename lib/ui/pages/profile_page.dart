@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:peru_stars_mobile/ui/widgets/SideBar.dart';
@@ -7,49 +8,111 @@ import '../widgets/BottomBar.dart';
 import '../widgets/NavBar.dart';
 import '../widgets/artist_card.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
+
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> with TickerProviderStateMixin{
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        drawer: SideBar(),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Header(),
-            PageCounts(),
-            Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "About",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                    ),
+    TabController _tabController = TabController(length: 2, vsync: this);
+    return Scaffold(
+      appBar: NavBar(),
+      drawer: SideBar(),
+      body: ListView(
+        padding: EdgeInsets.fromLTRB(30, 20, 30, 0),
+        children: [
+          UserPhoto(),
+          Container(
+            margin: EdgeInsets.all(20),
+            height: 60,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("George Hernández", style: Theme.of(context).textTheme.headline3,),
+                Container(
+                  height: 3,
+                  width: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(10)
                   ),
-                  Divider(),
-                  Text(
-                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
-                ],
-              ),
+                ),
+                Text("Músico"),
+              ],
             ),
-            Divider(),
-            Text(
-              "Artists that i like...",
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 15,
-              ),
+          ),
+          Container(
+            margin: EdgeInsets.all(5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(Icons.group, color: Colors.red,),
+                Spacer(flex: 1,),
+                Text("988"),
+                Spacer(flex: 4,),
+                Icon(Icons.email, color: Colors.red,),
+                Spacer(flex: 1,),
+                Text("george.hnz28@gmail.com"),
+              ],
             ),
-            ArtistCard(),
-          ],
-        ),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+            child: Text(
+              "Hola!, Soy George, un músico aficionado en busca de un sueño... Toco instrumentos como la guitarra y el piano, y poco a poco voy mejorando en el canto.",
+                style: Theme.of(context).textTheme.bodyText1,
+            ),
+          ),
+          Container(
+            child: TabBar(
+              controller: _tabController,
+              labelColor: Colors.black,
+              unselectedLabelColor: Colors.grey,
+              tabs: [
+                Tab(
+                  text: "Mis Obras",
+                ),
+                Tab(
+                  text: "Mis Eventos",
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 410,
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                ListView(
+                  children: [
+                    ArtworkCard(),
+                    ArtworkCard(),
+                    ArtworkCard(),
+                    ArtworkCard(),
+                    ArtworkCard(),
+                    ArtworkCard(),
+                  ],
+                ),
+                ListView(
+                  children: [
+                    ArtworkCard(),
+                    ArtworkCard(),
+                    ArtworkCard(),
+                    ArtworkCard(),
+                    ArtworkCard(),
+                    ArtworkCard(),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -173,7 +236,7 @@ class UserPhoto extends StatelessWidget {
         image: DecorationImage(
           image: NetworkImage(
               'https://upload.wikimedia.org/wikipedia/commons/d/d1/CARLOS-WARD-PERFIL.png'),
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         ),
         shape: BoxShape.circle,
         border: Border.all(
