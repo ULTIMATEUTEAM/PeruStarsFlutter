@@ -91,22 +91,17 @@ class _ProfilePageState extends State<ProfilePage> with TickerProviderStateMixin
               children: [
                 ListView(
                   children: [
-                    ArtworkCard(),
-                    ArtworkCard(),
-                    ArtworkCard(),
-                    ArtworkCard(),
-                    ArtworkCard(),
-                    ArtworkCard(),
+                    ArtworkCard(title: "Nublado", subtitle: "George Hernández", price: "4.99", img: "https://services.meteored.com/img/article/las-bondades-de-las-nieblas-234221-2_1024.jpg",),
+                    ArtworkCard(title: "Un sueño", subtitle: "George Hernández", price: "3.99", img: "https://images.pexels.com/photos/2842734/pexels-photo-2842734.jpeg",),
+                    ArtworkCard(title: "Mi Ritmo", subtitle: "George Hernández", price: "3.00", img: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",),
+                    ArtworkCard(title: "Más que eso", subtitle: "George Hernández", price: "4.99", img: "https://images.pexels.com/photos/811838/pexels-photo-811838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",),
+                    ArtworkCard(title: "Odisea", subtitle: "George Hernández", price: "Gratis", img: "https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
                   ],
                 ),
                 ListView(
                   children: [
-                    ArtworkCard(),
-                    ArtworkCard(),
-                    ArtworkCard(),
-                    ArtworkCard(),
-                    ArtworkCard(),
-                    ArtworkCard(),
+                    ArtworkCard(title: "Mi carrera",subtitle: "Conversatorio Nacional", price: "200.00", img: "https://picsum.photos/610",),
+                    ArtworkCard(title: "GeorgeH en concierto",subtitle: "La explanada", price: "99.99", img: "https://picsum.photos/740",),
                   ],
                 ),
               ],
