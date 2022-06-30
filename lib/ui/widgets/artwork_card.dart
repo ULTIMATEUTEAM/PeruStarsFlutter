@@ -17,7 +17,7 @@ class ArtworkCard extends StatelessWidget {
       height: 200,
       child: InkWell(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> const Scaffold(body: ArtworkPage())));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> Scaffold(body: ArtworkPage(title: this.title, subtitle: this.subtitle, price: this.price))));
         },
         child: Container(
           decoration: BoxDecoration(

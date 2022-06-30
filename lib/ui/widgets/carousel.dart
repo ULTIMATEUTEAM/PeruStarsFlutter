@@ -12,9 +12,9 @@ class _Carousel extends State<Carousel> {
   final List<String> imageList = [
     "https://hotpot.ai/images/site/ai/art_maker/teaser.jpg",
     "https://www.metmuseum.org/-/media/images/art/collection-landing-page/clp_teaser_700x444.jpg?sc_lang=en",
-    "https://www.setaswall.com/wp-content/uploads/2018/08/Spiderman-Wallpaper-76-1280x720.jpg",
+    "https://images.pexels.com/photos/11853523/pexels-photo-11853523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "https://images.newindianexpress.com/uploads/user/imagelibrary/2021/6/7/w900X450/D5trSdGX4AAwvkc.jpg",
-    "https://images.wallpapersden.com/image/download/peter-parker-spider-man-homecoming_bGhsa22UmZqaraWkpJRmZ21lrWxnZQ.jpg",
+    "https://artelista.s3.amazonaws.com/obras/big/3/2/9/7335142356785984.jpg",
   ];
 
   @override
