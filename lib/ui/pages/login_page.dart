@@ -255,7 +255,7 @@ class _LoginPageState extends State<LoginPage> {
       log('input: ' + userDataFromUi.toMap().toString());
 
       dynamic response = await UserApiService().login(userDataFromUi);
-      print(response);
+      log(response);
 
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
