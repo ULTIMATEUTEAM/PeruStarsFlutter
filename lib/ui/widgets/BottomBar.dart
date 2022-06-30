@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:peru_stars_mobile/ui/pages/artwork_page.dart';
@@ -30,9 +31,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         return new FavoritesPage();
         break;
       default:
-        return new Container(
-            child:
-                new Center(child: new Text("No page found by page chosser")));
+        return Center(child: Text("Próximamente"));
     }
   }
 
