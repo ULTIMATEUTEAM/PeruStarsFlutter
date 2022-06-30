@@ -7,6 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:peru_stars_mobile/main.dart';
 import 'package:peru_stars_mobile/ui/pages/login_page.dart';
+import 'package:peru_stars_mobile/ui/pages/privacy_policy_page.dart';
+import 'package:peru_stars_mobile/ui/pages/terms_and_conditions_page.dart';
 import 'package:peru_stars_mobile/ui/widgets/login_background.dart';
 
 import 'home_page.dart';
@@ -21,6 +23,7 @@ class RegisterPage extends StatefulWidget {
 enum UserType { artist, amateur }
 
 class _RegisterPageState extends State<RegisterPage> {
+  bool _agreeWithConditions = false;
   bool _loading = false;
   UserType? _userType = UserType.amateur;
 
@@ -133,6 +136,77 @@ class _RegisterPageState extends State<RegisterPage> {
                         const SizedBox(
                           height: 6,
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 40,
+                              child: Checkbox(
+                                  value: _agreeWithConditions,
+                                  onChanged: (isChecked) {
+                                    setState(() {
+                                      _agreeWithConditions = isChecked!;
+                                    });
+                                  }),
+                            ),
+                            // este widget es para forzar a que se respete el max ancho del padre (row
+                            Expanded(
+                              child: DefaultTextStyle(
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.black,
+                                ),
+                                child: Wrap(
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  children: [
+                                    const Text("Estoy de acuerdo "),
+                                    const Text("con los "),
+                                    InkWell(
+                                      child: Text(
+                                        "Términos y ",
+                                        style: GoogleFonts.montserrat(
+                                          color: Colors.red,
+                                        ),
+                                      ),
+                                      onTap: () =>
+                                          _showTermsAndConditions(context),
+                                    ),
+                                    InkWell(
+                                      child: Text(
+                                        "Condiciones ",
+                                        style: GoogleFonts.montserrat(
+                                          color: Colors.red,
+                                        ),
+                                      ),
+                                      onTap: () =>
+                                          _showTermsAndConditions(context),
+                                    ),
+                                    const Text("y "),
+                                    InkWell(
+                                      child: Text(
+                                        "Políticas ",
+                                        style: GoogleFonts.montserrat(
+                                          color: Colors.red,
+                                        ),
+                                      ),
+                                      onTap: () => _showPrivacyPolicy(context),
+                                    ),
+                                    InkWell(
+                                      child: Text(
+                                        "de Privacidad",
+                                        style: GoogleFonts.montserrat(
+                                          color: Colors.red,
+                                        ),
+                                      ),
+                                      onTap: () => _showPrivacyPolicy(context),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                         // Row(
                         //   mainAxisAlignment: MainAxisAlignment.center,
                         //   children: [
@@ -164,7 +238,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           height: 20,
                         ),
                         ElevatedButton(
-                          onPressed: () => _login(context),
+                          onPressed: () => _register(context),
                           child: Text(
                             'Registrar',
                             style: GoogleFonts.montserrat(
@@ -221,9 +295,9 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  void _login(BuildContext context) {
+  void _register(BuildContext context) {
     // in the future this will be improved
-    if (!_loading || _loading) {
+    if ((!_loading || _loading) && _agreeWithConditions) {
       setState(() {
         _loading = true;
         Navigator.of(context)
@@ -235,5 +309,15 @@ class _RegisterPageState extends State<RegisterPage> {
   _showRegister(BuildContext context) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => LoginPage()));
+  }
+
+  _showTermsAndConditions(BuildContext context) {
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => TermsAndConditionsPage()));
+  }
+
+  _showPrivacyPolicy(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => PrivacyPolicyPage()));
   }
 }
