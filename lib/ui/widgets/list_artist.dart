@@ -26,24 +26,24 @@ class _ListArtistState extends State<ListArtist> {
         name: 'Hugo Quispe'),
     CardItem(
         urlImage:
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Hailee_Steinfeld_%2828787553517%29_%28cropped%29.jpg/1200px-Hailee_Steinfeld_%2828787553517%29_%28cropped%29.jpg',
+            'https://wallpaperaccess.com/full/2213424.jpg',
         name: 'Javier Chavez'),
     CardItem(
         urlImage:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStTXW1e2b8PiutG32NXTbzpT8V5RatXCMyIw&usqp=CAU',
-        name: 'Hugo Chavez'),
+            'https://www.lima2019.pe/sites/default/files/2019-07/gianmarco.jpg',
+        name: 'Gian Marco'),
     CardItem(
         urlImage:
             'https://cloudfront-us-east-1.images.arcpublishing.com/culturacolectiva/KRXPOCOYM5HGVNQJ4SSCXHEIOU.jpg',
-        name: 'Hugo Quispe2'),
+        name: 'Natalia Iguiñiz'),
     CardItem(
         urlImage:
-            'https://definicion.mx/wp-content/uploads/2015/02/Artista.jpg',
-        name: 'Hugo Quispe3'),
+            'https://portal.andina.pe/EDPfotografia3/Thumbnail/2020/04/14/000667748W.jpg',
+        name: 'Anna Carina'),
     CardItem(
         urlImage:
-            'https://definicion.mx/wp-content/uploads/2015/02/Artista.jpg',
-        name: 'Hugo Quispe3'),
+            'https://jcmagazine.com/wp-content/uploads/2020/06/eva-ayllon.jpg',
+        name: 'Eva Ayllon'),
   ];
   @override
   Widget build(BuildContext context) {

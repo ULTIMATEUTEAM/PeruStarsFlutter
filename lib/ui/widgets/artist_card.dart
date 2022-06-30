@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ArtistCard extends StatelessWidget {
-  const ArtistCard({Key? key}) : super(key: key);
+  final String? name;
+  final String? img;
+  final String? type;
+
+  const ArtistCard({Key? key, this.name, this.img, this.type}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,7 @@ class ArtistCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(60),
-                child: Image.network("https://picsum.photos/200",
+                child: Image.network("${this.img==null?"https://picsum.photos/200":this.img}",
                   width: 60,
                   height: 60,
                   fit: BoxFit.cover,
@@ -33,8 +37,8 @@ class ArtistCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Shakira", style: Theme.of(context).textTheme.headline3,),
-                    Text("Música", style: Theme.of(context).textTheme.bodyText2,),
+                    Text("${this.name==null?"Shakira":this.name}", style: Theme.of(context).textTheme.headline3,),
+                    Text("${this.type==null?"Música":this.type}", style: Theme.of(context).textTheme.bodyText2,),
                   ],
                 ),
               ),

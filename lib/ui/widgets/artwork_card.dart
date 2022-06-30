@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:peru_stars_mobile/ui/pages/artwork_page.dart';
 
 class ArtworkCard extends StatelessWidget {
-  const ArtworkCard({Key? key}) : super(key: key);
+  final String? title;
+  final String? subtitle;
+  final String? img;
+  final String? price;
+
+  const ArtworkCard({Key? key, this.title, this.subtitle, this.img, this.price}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +31,7 @@ class ArtworkCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(28),
-                child: Image.network("https://picsum.photos/350",
+                child: Image.network("${this.img==null?"https://picsum.photos/250":this.img}",
                   width: 300,
                   height: 130,
                   fit: BoxFit.cover,
@@ -34,16 +39,16 @@ class ArtworkCard extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-                child: Text("La noche estrellada", style: Theme.of(context).textTheme.headline3,),
+                child: Text("${this.title==null?"Título":this.title}", style: Theme.of(context).textTheme.headline3,),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                 child: Row(
                   children: [
-                    Text("Van Goh", style: Theme.of(context).textTheme.headline5,),
+                    Text("${this.subtitle==null?"Sub título":this.subtitle}", style: Theme.of(context).textTheme.headline5,),
                     Spacer(flex: 1),
                     Icon(Icons.attach_money, size: 20, color: Colors.red[300],),
-                    Text("100", style: Theme.of(context).textTheme.headline4,),
+                    Text("${this.price==null?"100":this.price}", style: Theme.of(context).textTheme.headline4,),
                   ],
                 ),
               )
